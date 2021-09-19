@@ -3,7 +3,7 @@ function init() {
   var selector = d3.select("#selDataset");
 
   // Use the list of sample names to populate the select options
-  d3.json("samples.json").then((data) => {
+  d3.json("C:/Users/ewaas/Desktop/Data Bootcamp/Analyses/ewaszy.github.io/Data/Datasamples.json").then((data) => {
     var sampleNames = data.names;
 
     sampleNames.forEach((sample) => {
@@ -32,7 +32,7 @@ function optionChanged(newSample) {
 
 // Demographics Panel 
 function buildMetadata(sample) {
-  d3.json("samples.json").then((data) => {
+  d3.json("C:/Users/ewaas/Desktop/Data Bootcamp/Analyses/ewaszy.github.io/Data/Datasamples.json").then((data) => {
     var metadata = data.metadata;
     // Filter the data for the object with the desired sample number
     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
@@ -56,7 +56,7 @@ function buildMetadata(sample) {
 // 1. Create the buildCharts function.
 function buildCharts(sample) {
   // 2. Use d3.json to load and retrieve the samples.json file 
-  d3.json("samples.json").then((data) => {
+  //d3.json("C:/Users/ewaas/Desktop/Data Bootcamp/Analyses/ewaszy.github.io/Data/Datasamples.json").then((data) => {
     // 3. Create a variable that holds the samples array. 
     console.log(data);
     var samples = data.samples;
@@ -87,11 +87,15 @@ function buildCharts(sample) {
       y: yticks,
       type: "bar",
       orientation: "h",
-      text: labels
+      text: labels,
+      mode: "markers", 
+      marker: {
+        color: 'rgba(255,105,180,1)'
+      }
     }];
     // 9. Create the layout for the bar chart. 
     var barLayout = {
-      title: "Top 10 Bacteria Cultures Found"
+      title: "Top 10 Bacteria Cultures Found",
     };
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout);
@@ -108,7 +112,7 @@ function buildCharts(sample) {
          size: bubbleValues,
          color: bubbleValues,
          // Couldn't find the color scheme used in example
-         colorscale: "Viridis" 
+         colorscale: "Picnic" 
        }
     }];
     
@@ -144,7 +148,6 @@ function buildCharts(sample) {
       title: {text: "<b> Belly Button Washing Frequency </b> <br></br> Scrubs Per Week"},
       gauge: {
         axis: {range: [null,10], dtick: "2"},
-
         bar: {color: "black"},
         steps:[
           {range: [0, 2], color: "red"},
