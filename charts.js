@@ -1,9 +1,11 @@
+
+
 function init() {
   // Grab a reference to the dropdown select element
   var selector = d3.select("#selDataset");
 
   // Use the list of sample names to populate the select options
-  d3.json("C:/Users/ewaas/Desktop/Data Bootcamp/Analyses/ewaszy.github.io/Data/Datasamples.json").then((data) => {
+  d3.json("./scripts/samples.json").then((data) => {
     var sampleNames = data.names;
 
     sampleNames.forEach((sample) => {
@@ -32,7 +34,7 @@ function optionChanged(newSample) {
 
 // Demographics Panel 
 function buildMetadata(sample) {
-  d3.json("C:/Users/ewaas/Desktop/Data Bootcamp/Analyses/ewaszy.github.io/Data/Datasamples.json").then((data) => {
+  d3.json("./scripts/samples.json").then((data) => {
     var metadata = data.metadata;
     // Filter the data for the object with the desired sample number
     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
@@ -56,7 +58,7 @@ function buildMetadata(sample) {
 // 1. Create the buildCharts function.
 function buildCharts(sample) {
   // 2. Use d3.json to load and retrieve the samples.json file 
-  //d3.json("C:/Users/ewaas/Desktop/Data Bootcamp/Analyses/ewaszy.github.io/Data/Datasamples.json").then((data) => {
+  d3.json("./scripts/samples.json").then((data) => {
     // 3. Create a variable that holds the samples array. 
     console.log(data);
     var samples = data.samples;
