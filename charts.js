@@ -67,8 +67,8 @@ function buildCharts(sample) {
 
     // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
     var ids = result.otu_ids;
-    var labels = result.otu_labels;
-    var values = result.sample_values;
+    var labels = result.otu_labels.slice(0, 10).reverse();
+    var values = result.sample_values.slice(0, 10).reverse();
 
     var bubbleLabels = result.otu_labels;
     var bubbleValues = result.sample_values;
