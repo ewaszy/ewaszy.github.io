@@ -1,5 +1,3 @@
-
-
 function init() {
   // Grab a reference to the dropdown select element
   var selector = d3.select("#selDataset");
@@ -69,8 +67,8 @@ function buildCharts(sample) {
 
     // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
     var ids = result.otu_ids;
-    var labels = result.otu_labels.slice(0, 10).reverse();
-    var values = result.sample_values.slice(0,10).reverse();
+    var labels = result.otu_labels;
+    var values = result.sample_values;
 
     var bubbleLabels = result.otu_labels;
     var bubbleValues = result.sample_values;
@@ -81,7 +79,8 @@ function buildCharts(sample) {
     // Hint: Get the the top 10 otu_ids and map them in descending order  
     //  so the otu_ids with the most bacteria are last. 
 
-    var yticks = ids.map(sampleObj => "OTU" + sampleObj).slice(0,10).reverse();
+    //var yticks = ids.map(sampleObj => "OTU" + sampleObj).slice(0,10).reverse();
+    var yticks = ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse();
 
     // 8. Create the trace for the bar chart. 
     var barData = [{
