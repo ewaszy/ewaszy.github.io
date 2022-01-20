@@ -21,8 +21,18 @@ A partially completed dashboard containing a panel for demographic information f
 
 Challenge:
 
-Completed the dashboard to include three different types of interactive visualizations for the dataset. 
+Completed the dashboard to include three different types of interactive visualizations for the dataset. Each visualization updates to display the correct data when a new subject is selected from th dropdown menu. 
 
 This was accomplished in 4 deliverables:
 
-1. Created a horizontal bar chart to display the top 10 bacterial species when a subject
+1. A horizontal bar chart to display the top 10 bacterial species in descending order
+2. A bubble chart that displays the number of the top 10 bacterial species in proportion to the size of the marks
+3. A gague that indicates how many times a subject washed thier bellybutton per week 
+4. Dashboard customizations: Modified the color scheme, added image to jumbotron, rearranged layout of dashbaord.
+
+Additional suggested customizations for further practice: 
+* Use a custom font with contrast for the colors
+* Add more information about the project as a paragraph on the page
+* Add information about what each graph visualizes, either under or next to each graph
+* Make the webpage mobile-responsive
+* Add a navigation bar that allows you to select the bar or bubble chart
